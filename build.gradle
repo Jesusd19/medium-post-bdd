@@ -28,3 +28,8 @@ dependencies {
     compile 'net.serenity-bdd:serenity-cucumber:1.9.5'
 }
 gradle.startParameter.continueOnFailure = true
+
+test {
+	testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
