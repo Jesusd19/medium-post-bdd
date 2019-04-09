@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.thucydides.core.annotations.Step;
 
 public class OpenMedium implements Task {
-
+	
 	@Override
 	@Step("{0} open medium home page")
 	public <T extends Actor> void performAs(T actor) {

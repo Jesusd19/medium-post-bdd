@@ -2,6 +2,7 @@ package MediumBDD.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import MediumBDD.tasks.Load;
 import MediumBDD.tasks.OpenMedium;
 import MediumBDD.tasks.OpenTheBrowser;
 import MediumBDD.tasks.Search;
@@ -14,16 +15,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
 import net.thucydides.core.annotations.Managed;
 
 public class MediumPostInformationStepDefinition {
 	@Managed(driver = "chrome")
 	private WebDriver hisBrowser;
     private Actor ngenko = Actor.named("Yenkis");
-    private GoogleHomePage googleHomePage;
-    private GoogleSearchPage googleSearchPage;
 
 	@Before
 	public void setUp() {
@@ -32,14 +29,7 @@ public class MediumPostInformationStepDefinition {
 	
 	@Given("^the medium home page loaded$")
     public void theMediumHomePageLoaded() {
-		ngenko.wasAbleTo(
-				
-				OpenTheBrowser.on(googleHomePage),
-				
-				Search.theTerm("medium").into(GoogleHomePage.INPUT_SEARCH),
-				
-				OpenMedium.homePage()
-				);
+		ngenko.wasAbleTo(Load.mediumHomePage());
     }
 	
 	@When("^I search the posts stored in a excel file$")
