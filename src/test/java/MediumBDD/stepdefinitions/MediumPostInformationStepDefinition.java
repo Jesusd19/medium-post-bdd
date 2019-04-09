@@ -30,9 +30,14 @@ public class MediumPostInformationStepDefinition {
 	
 	@Given("^the medium home page loaded$")
     public void theMediumHomePageLoaded() {
-		ngenko.wasAbleTo(OpenTheBrowser.on(googleHomePage));
-		ngenko.wasAbleTo(Enter.keyValues("medium\n").into(GoogleHomePage.INPUT_SEARCH));
-		ngenko.wasAbleTo(Click.on(GoogleSearchPage.SELECT_MEDIUM));
+		ngenko.wasAbleTo(
+				
+				OpenTheBrowser.on(googleHomePage),
+				
+				Enter.keyValues("medium\n").into(GoogleHomePage.INPUT_SEARCH),
+				
+				Click.on(GoogleSearchPage.SELECT_MEDIUM)
+				);
     }
 	
 	@When("^I search the posts stored in a excel file$")
