@@ -2,7 +2,9 @@ package MediumBDD.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import MediumBDD.tasks.OpenMedium;
 import MediumBDD.tasks.OpenTheBrowser;
+import MediumBDD.tasks.Search;
 import MediumBDD.userinterfaces.GoogleHomePage;
 import MediumBDD.userinterfaces.GoogleSearchPage;
 import cucumber.api.PendingException;
@@ -34,9 +36,9 @@ public class MediumPostInformationStepDefinition {
 				
 				OpenTheBrowser.on(googleHomePage),
 				
-				Enter.keyValues("medium\n").into(GoogleHomePage.INPUT_SEARCH),
+				Search.theTerm("medium").into(GoogleHomePage.INPUT_SEARCH),
 				
-				Click.on(GoogleSearchPage.SELECT_MEDIUM)
+				OpenMedium.homePage()
 				);
     }
 	
